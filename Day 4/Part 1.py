@@ -10,7 +10,7 @@ lines = []
 
 def isValid(line):
     line = line.split(" ")
-    return len(set([''.join(sorted(i)) for i in line])) == len(line)
+    return len(set(line)) == len(line)
 
 
 
@@ -22,7 +22,7 @@ with open("input.txt", "r") as f:
 
 
 for i in lines:
-    if isValid(i):
+    if isValid(i.strip()):
         valid += 1
     elif not isValid(i):
         invalid += 1
