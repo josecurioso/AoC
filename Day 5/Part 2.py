@@ -11,7 +11,13 @@ tempMove = 0
 while (0<=currentIndex<=1090):
     try:
         tempMove = lines[currentIndex]
-        lines[currentIndex] = lines[currentIndex]+1
+        if abs(tempMove)>=3:
+            if tempMove<0:
+                lines[currentIndex] = lines[currentIndex]+1
+            else:
+                lines[currentIndex] = lines[currentIndex]-1
+        else:
+            lines[currentIndex] = lines[currentIndex]+1
         currentIndex += tempMove
         #print("Current: lines[", currentIndex+1, "] = ", lines[currentIndex], " | isOut ", not(0<=currentIndex<=1090))
         counter += 1
