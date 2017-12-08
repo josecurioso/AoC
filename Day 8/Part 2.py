@@ -1,6 +1,8 @@
 vars = dict()
 seen = []
 
+interNumbers = []
+
 def parseLine(line):
     sepL = line.split(" ")
     var = sepL[0]
@@ -42,11 +44,11 @@ def evaluate(line):
             vars[var] -= num
         elif op == "inc":
             vars[var] += num
+        interNumbers.append(vars[var])
 
 
 
 with open("input.txt", "r") as f:
     for i in f.readlines():
         evaluate(i)
-    for i in seen:
-        print(vars[i])
+    print(max(interNumbers))
