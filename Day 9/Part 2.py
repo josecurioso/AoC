@@ -13,6 +13,7 @@ input = list("{<a>,<a>,<a>,<a>}")
 """
 inGarbage = False
 ignore = False
+garbChars = 0
 
 for i in input:
     if ignore:
@@ -20,7 +21,7 @@ for i in input:
     elif not ignore:
         if (i == '!'):
             ignore = True
-        if (i == "{") and (not inGarbage):
+        elif (i == "{") and (not inGarbage):
             currentDepth += 1
             score += currentDepth
         elif (i== '<') and (not inGarbage) and (currentDepth>=1):
@@ -29,7 +30,10 @@ for i in input:
             inGarbage = False
         elif (i == '}') and (not inGarbage):
             currentDepth -= 1
+        elif inGarbage:
+            garbChars += 1
         if currentDepth<1:
             currentDepth = 1
     #time.sleep(0.0005)
 print(score)
+print(garbChars)
