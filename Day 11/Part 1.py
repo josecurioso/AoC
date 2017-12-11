@@ -1,8 +1,7 @@
 original = []
-new = []
-originalNew = []
+originalCtrl = []
 
-with open("input.txt", "r") as f:
+with open("input_test.txt", "r") as f:
     lines = f.readlines()
     lines = [i.strip() for i in lines]
     lines = ''.join(lines)
@@ -39,22 +38,43 @@ def getEquivalent(a, b):
         return "se"
     elif (a=="s") and (b=="ne"):
         return "se"
+
+    elif (a=="ne") and (b=="sw"):
+        return "h"
+    elif (a=="sw") and (b=="ne"):
+        return "h"
+    elif (a=="n") and (b=="s"):
+        return "h"
+    elif (a=="s") and (b=="n"):
+        return "h"
+    elif (a=="nw") and (b=="se"):
+        return "h"
+    elif (a=="se") and (b=="nw"):
+        return "h"
+
     else:
         return "none"
 
-
-
-
-
-
-for j in range(500):
+def run():
     i = 0
     while i < len(original)-1:
         equivalent = getEquivalent(original[i], original[i+1])
         if equivalent == "none":
             i += 1
+        elif equivalent == "h":
+            original.pop(i+1)
+            original.pop(i)
+
         else:
             original[i] = equivalent
-            print(original.pop(i+1))
+            original.pop(i+1)
+
+
+temp = 0
+while temp != len(original):
+    temp = len(original)
+    run()
+
 
 print(original)
+print(len(original))

@@ -1,0 +1,17 @@
+se sw = s
+sw se = s
+
+nw s = sw
+s nw = sw
+s
+sw n = nw
+n sw = nw
+
+nw ne = n
+ne nw = n
+
+n se = ne
+se n = ne
+
+ne s = se
+s ne = se
