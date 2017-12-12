@@ -19,9 +19,22 @@ with open("input.txt", "r") as f:
 
 
 def getDests(id):
+    visited.append(id)
     for i in data[str(id)]:
         if i not in visited:
             visited.append(i)
             getDests(i)
-getDests(0)
-print(len(visited))
+
+#getDests(0)
+
+#print(len(visited))
+
+count = 0
+while len(ids) > 0:
+    getDests(ids[0])
+    for i in visited:
+        ids.pop(ids.index(i))
+        visited.remove(i)
+    visited = []
+    count += 1
+print(count)
