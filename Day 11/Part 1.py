@@ -57,6 +57,7 @@ def getEquivalent(a, b):
 
 def run():
     i = 0
+    last = ""
     while i < len(original)-1:
         equivalent = getEquivalent(original[i], original[i+1])
         if equivalent == "none":
