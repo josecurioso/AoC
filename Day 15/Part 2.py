@@ -9,11 +9,17 @@ B_f = 48271
 
 div = 2147483647
 
-def generatePair():
+def generateA():
     global lastA
-    global lastB
     lastA = (A_f*lastA)%div
+    while lastA%4 != 0:
+        lastA = (A_f*lastA)%div
+
+def generateB():
+    global lastB
     lastB = (B_f*lastB)%div
+    while lastB%8 != 0:
+        lastB = (B_f*lastB)%div
 
 def getBin(number):
     binary = str("{0:b}".format(number))
@@ -22,8 +28,9 @@ def getBin(number):
 
 
 count = 0
-for i in range(40000000):
-    generatePair()
+for i in range(5000000):
+    generateA()
+    generateB()
     if getBin(lastA) == getBin(lastB):
         count += 1
 
