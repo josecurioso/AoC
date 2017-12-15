@@ -44,4 +44,6 @@ def getSequence(string):
     hstr = format(integer, '0>42b')
     return hstr
 
-print(getSequence("flqrgnkx"))
+
+sequence = list(str(getSequence("nbysizxe")))
+print(sequence.count("1"))
