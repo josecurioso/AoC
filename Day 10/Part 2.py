@@ -62,6 +62,7 @@ def runRound():
 lengths = getInput("input.txt")
 print(lengths)
 for a in range(64):
+    print("a")
     runRound()
 dense = getDense(values)
 print(dense)
