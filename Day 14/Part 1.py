@@ -34,5 +34,14 @@ def knotHash(lengths):
     dense = ''.join(dense).strip()
     return dense
 
+def getSequence(string):
+    sequence = []
+    for i in range(128):
+        sequence.append(knotHash(string + "-" + str(i)))
 
-print(hashIt("70,66,255,2,48,0,54,48,80,141,244,254,160,108,1,41"))
+    bstr = ''.join(sequence)
+    integer = int(bstr, 16)
+    hstr = format(integer, '0>42b')
+    return hstr
+
+print(getSequence("flqrgnkx"))
