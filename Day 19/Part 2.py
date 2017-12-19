@@ -8,6 +8,7 @@ misc = misc + list(string.ascii_uppercase)
 lines = []
 last = "d"
 enc = []
+steps = 0
 
 with open("input.txt", "r") as f:
     for i in f.readlines():
@@ -126,6 +127,7 @@ def getNewRoute(pos):
 
 done = False
 while not done:
+    steps += 1
     sorr = getSorround(pos)
     char = lines[pos[0]][pos[1]]
     #print(pos)
@@ -175,4 +177,5 @@ while not done:
         elif last == "l":
             goLeft()
 
-print(''.join(enc))
+print("Result: ", ''.join(enc))
+print("Steps: ", steps)
